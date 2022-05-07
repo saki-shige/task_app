@@ -1,0 +1,31 @@
+
+= form_with model: task do |f|
+  table
+    tr
+      th = f.label :name
+      td = f.text_field :name, class: "input-form"
+
+    tr
+      th = f.label :start
+      td = f.datetime_field :start, class: "input-form"
+
+    tr
+      th = f.label :end
+      td = f.datetime_field :end, class: "input-form"
+    
+    tr
+      th = f.label :all_day
+      td 
+        .checkbox = f.check_box :all_day 
+        .checkbox-note 終日の場合はチェックを入れます
+
+    tr
+      th = f.label :note
+      td = f.text_area :note, class: "input-area"
+
+  .links
+    ul
+      li = f.submit
+      li = link_to "スケジュール一覧に戻る", :tasks
+
+= render partial:'fotter'

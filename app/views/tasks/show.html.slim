@@ -9,10 +9,10 @@ table
     th= Task.human_attribute_name(:name)
     td= @task.name
   tr
-    th= Task.human_attribute_name(:start)
+    th= Task.human_attribute_name(:start_at)
     td= @task.start.to_s(:datetime_jp)
   tr
-    th= Task.human_attribute_name(:end)
+    th= Task.human_attribute_name(:end_at)
     td= @task.end.to_s(:datetime_jp)
   tr
     th= Task.human_attribute_name(:all_day)

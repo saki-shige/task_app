@@ -13,11 +13,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(params.require(:task).permit(:name, :start, :end, :all_day, :note))
+    @task = Task.new(params.require(:task).permit(:name, :start_at, :end_at, :all_day, :note))
     if @task.save
       redirect_to tasks_url, notice: "タスク「#{@task.name}」を登録しました"
     else
-      render :new
+      render "new"
     end
   end
 
@@ -27,7 +27,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    if @task.update(params.require(:task).permit(:name, :start, :end, :all_day, :note))
+    if @task.update(params.require(:task).permit(:name, :start_at, :end_at, :all_day, :note))
       flash[:notice] = "「#{@task.name}」を更新しました"
       redirect_to :tasks
     else

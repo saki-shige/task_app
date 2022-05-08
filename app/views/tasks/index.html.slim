@@ -10,8 +10,8 @@ table
     tr
       th= Task.human_attribute_name(:id)
       th= Task.human_attribute_name(:name)
-      th= Task.human_attribute_name(:start)
-      th= Task.human_attribute_name(:end)
+      th= Task.human_attribute_name(:start_at)
+      th= Task.human_attribute_name(:end_at)
       th= Task.human_attribute_name(:all_day)
       th= Task.human_attribute_name(:updated_at)
       th 確認
@@ -22,8 +22,8 @@ table
       tr
         td = task.id 
         td = task.name 
-        td = task.start.to_s(:datetime_jp) 
-        td = task.end.to_s(:datetime_jp) 
+        td = task.start_at.to_s(:datetime_jp) 
+        td = task.end_at.to_s(:datetime_jp) 
         td = multiple_choice(task.all_day) 
         td = task.updated_at.to_s(:datetime_jp) 
         td =link_to "確認", task_path(task)

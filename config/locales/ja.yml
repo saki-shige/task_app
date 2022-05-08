@@ -13,8 +13,8 @@ ja:
       task:
         id: ID
         name: タイトル
-        start: 開始日時
-        end: 終了日時
+        start_at: 開始日時
+        end_at: 終了日時
         note: メモ
         all_day: 終日
         created_at: 登録日時

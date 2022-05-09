@@ -10,10 +10,10 @@ table
     td= @task.name
   tr
     th= Task.human_attribute_name(:start_at)
-    td= @task.start.to_s(:datetime_jp)
+    td= @task.start_at.to_s(:datetime_jp)
   tr
     th= Task.human_attribute_name(:end_at)
-    td= @task.end.to_s(:datetime_jp)
+    td= @task.end_at.to_s(:datetime_jp)
   tr
     th= Task.human_attribute_name(:all_day)
     td= multiple_choice(@task.all_day)

@@ -1,3 +1,5 @@
 .information
   .page-title スケジュール編集
   =render partial: 'error', locals: {obj: @task}
+
+= render partial: 'form', locals: {task: @task}

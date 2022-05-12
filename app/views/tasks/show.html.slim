@@ -1,0 +1,32 @@
+.information
+  .page-title スケジュール詳細
+
+table
+  tr
+    th = Task.human_attribute_name(:id)
+    td = @task.id
+  tr
+    th= Task.human_attribute_name(:name)
+    td= @task.name
+  tr
+    th= Task.human_attribute_name(:start_at)
+    td= @task.start_at.to_s(:datetime_jp)
+  tr
+    th= Task.human_attribute_name(:end_at)
+    td= @task.end_at.to_s(:datetime_jp)
+  tr
+    th= Task.human_attribute_name(:all_day)
+    td= multiple_choice(@task.all_day)
+  tr
+    th= Task.human_attribute_name(:note)
+    td= simple_format(h(@task.note), {}, sanitaize: false, wrapper_tag:"div")
+  tr
+    th= Task.human_attribute_name(:updated_at)
+    td= @task.updated_at.to_s(:datetime_jp)
+
+.links
+  ul
+    li = link_to "編集する", edit_task_path
+    li = link_to "スケジュール一覧に戻る", tasks_path
+    li = link_to "削除する", task_path, method: :delete, data:{confirm:"タスク#{@task.name}を削除します。よろしいですか？"}
+

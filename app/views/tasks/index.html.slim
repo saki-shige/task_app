@@ -1,0 +1,39 @@
+.information
+  .page-title スケジュール一覧
+
+  - if flash[:notice]
+    .message.message-success =flash[:notice]
+
+.search-box
+  =search_form_for @q do |f|
+    .search-attr =f.label :name_cont, '名称'
+    .search-attr =f.search_field :name_cont
+    =f.submit
+
+table
+  thead
+    tr
+      th= sort_link(@q, :id, Task.human_attribute_name(:id) )
+      th= sort_link(@q, :name, Task.human_attribute_name(:name) )
+      th= sort_link(@q, :start_at, Task.human_attribute_name(:start_at) )
+      th= Task.human_attribute_name(:end_at)
+      th= Task.human_attribute_name(:all_day)
+      th= Task.human_attribute_name(:updated_at)
+      th 確認
+      th 編集
+      th 削除
+  tbody
+    - @tasks.each do |task|
+      tr
+        td = task.id 
+        td = task.name 
+        td = task.start_at.to_s(:datetime_jp) 
+        td = task.end_at.to_s(:datetime_jp) 
+        td = multiple_choice(task.all_day) 
+        td = task.updated_at.to_s(:datetime_jp) 
+        td =link_to "確認", task_path(task)
+        td =link_to "編集", [:edit, task] 
+        td = link_to "削除", task_path(task), method: :delete, data:{confirm: "タスク#{task.name}を削除します。よろしいですか？"}
+
+.links
+  = link_to '新規登録', new_task_path

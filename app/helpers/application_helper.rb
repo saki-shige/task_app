@@ -1,2 +1,5 @@
 module ApplicationHelper
-end
+    def multiple_choice(i)
+        i ? '◯' :''
+    end
+end 

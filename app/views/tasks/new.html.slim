@@ -1,0 +1,5 @@
+.information
+  .page-title 新規登録
+  =render partial: 'error', locals: {obj: @task}
+
+= render partial: 'form', locals: {task: @task}

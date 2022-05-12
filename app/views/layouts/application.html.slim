@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title
+      | TaskApp
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+
+    header 
+      .app-title
+        |Ruby on Rails スケジュール管理アプリ
+    
+    
+    .main-container
+      = yield
+    
+    footer
+      -if request.path == '/tasks'
+        =render "tasks/footer_for_index"
+      -else
+        = render "tasks/footer"

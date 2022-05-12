@@ -2,15 +2,20 @@
   .page-title スケジュール一覧
 
   - if flash[:notice]
-    .message =flash[:notice]
+    .message.message-success =flash[:notice]
 
+.search-box
+  =search_form_for @q do |f|
+    .search-attr =f.label :name_cont, '名称'
+    .search-attr =f.search_field :name_cont
+    =f.submit
 
 table
   thead
     tr
-      th= Task.human_attribute_name(:id)
-      th= Task.human_attribute_name(:name)
-      th= Task.human_attribute_name(:start_at)
+      th= sort_link(@q, :id, Task.human_attribute_name(:id) )
+      th= sort_link(@q, :name, Task.human_attribute_name(:name) )
+      th= sort_link(@q, :start_at, Task.human_attribute_name(:start_at) )
       th= Task.human_attribute_name(:end_at)
       th= Task.human_attribute_name(:all_day)
       th= Task.human_attribute_name(:updated_at)
@@ -32,7 +37,3 @@ table
 
 .links
   = link_to '新規登録', new_task_path
-
-footer 
-  .app-title
-    ="現在の時刻:#{Time.now.to_s(:datetime_jp)} スケジュール合計#{Task.count}"

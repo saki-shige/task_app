@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
+  helper_method :sort_column, :sort_direction
+
   def index
-    @tasks = Task.all
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result(distinct: true)
   end
 
   def show

@@ -11,7 +11,6 @@ body{
     margin: 0px;
     padding: 0px;
     position: relative;
-    min-height: 100vh;
     padding-bottom: 100px;
     box-sizing: border-box;
 }
@@ -28,8 +27,8 @@ header {
     width: 100%;
     padding: 10px;
     margin: 0px;
-    background-color: orange;
-    color: white;
+    background-color: #c52f24;
+    color: #fff;
 }
 
 .app-title{
@@ -42,64 +41,48 @@ header {
 }
 
 footer{
-  width: 100%;
-  padding: 10px;
-  margin: 0px;
-  background-color: orange;
-  color: white;
-  position: absolute;
-  bottom: 0px;
+    width: 100%;
+    padding: 10px;
+    margin: 0px;
+    background-color: #c52f24;
+    color: #fff;
+    position: absolute;
+    bottom: 0px;
 }
 
 .page-title{
     font-size: 24px;
+    font-weight: bold;
 }
 
 table{
-    display: table;
     box-sizing: border-box;
-    text-indent: initial;
-    border-spacing: 2px;
-    border-color: grey;
+    border-spacing: 1px;
     border: solid 1px;
-    border-collapse:  collapse;
+    border-collapse: collapse;
 }
 
 thead {
-    display: table-header-group;
     vertical-align: middle;
-    border-color: inherit;
 }
-
-tr {
-    display: table-row;
-    vertical-align: inherit;
-    border-color: inherit;
-}
-
 
 th {
-    display: table-cell;
-    vertical-align: inherit;
     font-weight: bold;
-    text-align: -internal-center;
     border: solid 1px black;
     padding: 10px 20px;
+    background-color: #ffdfdf;
 }
 
 tbody {
-    display: table-row-group;
     vertical-align: middle;
-    border-color: inherit;
 }
-
 
 td {
     display: table-cell;
-    vertical-align: inherit;
     border: solid 1px black;
     padding: 10px 20px;
     text-align: center;
+    background-color: #f1c8c861;
 }
 
 .information{
@@ -120,12 +103,30 @@ td {
 }
 
 .message{
-    width: fit-content;
+    width: 350px;
+    text-align: center;
     padding: 10px;
     margin-top: 15px;
     border: solid 1px;
 }
 
 .message-error{
-    background-color: yellow;
+    background-color: #ec98ac8f;
+    border-color: #ec7592;
+}
+
+.message-success{
+    background-color: #98ecaa7a;
+    border-color: #5cd075
+}
+
+.search-box{
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.search-attr{
+    display: inline-block;
+    margin-right: 10px;
 }

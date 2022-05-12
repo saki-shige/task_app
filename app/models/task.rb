@@ -14,7 +14,7 @@ class Task < ApplicationRecord
     end
     def end_cannot_be_earlier_than_start
       if end_at.present? && start_at.present? && (end_at.before? start_at)
-        errors.add(:end_at, "は開始日時よりも先の日時を指定してください。")
+        errors.add(:end_at, "は開始日時以降を指定してください")
       end
     end
 end
